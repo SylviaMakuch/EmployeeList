@@ -49,9 +49,10 @@ const Position = styled.div`
     letter-spacing: 1px;
 `;
 
+
 export default function Card(props) {
     return (
-        <CardContainer>
+        <CardContainer >
             <Picture src={props.picture} />
             <Name>{props.first} {props.last}</Name>
             <Position>{props.job}</Position>
