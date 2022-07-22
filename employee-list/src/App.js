@@ -1,9 +1,13 @@
 import React from "react";
+import NavBar from "./NavBar";
+import EmployeeList from "./EmployeeList";
 
 function App() {
   return (
-    <>
-    helo</>
+ <>
+ <NavBar />
+  <EmployeeList />
+ </>
     
   );
 }
