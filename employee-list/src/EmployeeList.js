@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import Card from "./Card";
+import Card from "./Card.js";
+import AddEmployeeForm from "./AddEmployeeForm.js";
 
 const EmployeeListContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
+
+    @media (max-width: 1200px) {
+        justify-content: center;
+    }
 `;
 
 const Button = styled.button`
@@ -29,6 +34,7 @@ function Employelist() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
+    const [active , setActive] = useState(false);
 
     useEffect(() => {
         fetch("https://emplistapi-258220.appspot.com/")
@@ -45,7 +51,7 @@ function Employelist() {
                 setError(error);
             }
         )
-        console.log(items[0]);
+        console.log(items[1]);
     }, []);
 
     if (error) {
@@ -61,15 +67,16 @@ function Employelist() {
         <EmployeeListContainer>
             {items.map(item => (
                 <Card
-                    key={item.id}
+                    id={item.id}
                     first={item.name.first}
                     last={item.name.last}
                     job={item.jobTitle}
-                    picture={item.photoURL}
+                    picture={item.photoURL}              
                 />
             ))}
         </EmployeeListContainer>
-        <Button>Add Employee</Button>
+        <Button onClick={() => setActive(!active)}>Add Employee</Button>
+        {active && <AddEmployeeForm />}
         </>
     );
 }
