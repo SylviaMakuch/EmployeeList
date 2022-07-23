@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -17,8 +17,8 @@ const Text = styled.div`
     font-size: 28px;
     color: white;
     font-weight: 400;
-    
     cursor: pointer;
+    margin: 0px;
 
     &:hover {
         background-color: #00bfa5;

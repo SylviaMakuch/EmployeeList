@@ -16,9 +16,9 @@ const PageContainer = styled.div`
 const FormContainer = styled.form`
     backdrop-filter: blur(25px) saturate(0%);
     -webkit-backdrop-filter: blur(5px) saturate(0%);
-    background-color: hwb(249deg 22% 66% / 61%);
+    background-color: black;
     border-radius: 12px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(255 255 255 / 42%);
     padding: 50px;
     margin: 50px;
     position: absolute;

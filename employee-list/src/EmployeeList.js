@@ -22,7 +22,7 @@ const Button = styled.button`
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    margin: 60px;
+    margin: 60px 100px;
     cursor: pointer;
 
     &:hover {
