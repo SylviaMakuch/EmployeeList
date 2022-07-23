@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -26,6 +26,7 @@ const Text = styled.div`
 
     @media (max-width: 768px) {
         font-size: 17px;
+        padding: 10px;
     }
 `;
 

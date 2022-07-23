@@ -6,17 +6,21 @@ const PageContainer = styled.div`
     backdrop-filter: blur(25px) saturate(0%);
     -webkit-backdrop-filter: blur(10px) saturate(0%);
     background-color: hwb(249deg 22% 66% / 61%);
-    height: 200vh;
-    width: 100vw;
+    height: 250vh;
+    width: 100%;
     z-index: 2;
     position: absolute;
     top: 0px;
+
+    @media (max-width: 768px) {
+        height: 1200vh;
+    }
 `;
 
 const FormContainer = styled.form`
     backdrop-filter: blur(25px) saturate(0%);
     -webkit-backdrop-filter: blur(5px) saturate(0%);
-    background-color: black;
+    background-color: #1c2328;
     border-radius: 12px;
     border: 1px solid rgb(255 255 255 / 42%);
     padding: 50px;
@@ -26,6 +30,16 @@ const FormContainer = styled.form`
     width: 600px;
     left: 30%;
     z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @media (max-width: 768px) {
+        margin: 0px;
+        bottom: 10%;
+        width: 250px;
+        left:0%;
+    }
 `;
 
 const Title = styled.div`
@@ -61,7 +75,7 @@ const Label = styled.label`
     font-size: 18px;
     color: white;
     font-weight: 100;
-    margin: 10px 0px;
+    margin: 20px 0px;
     letter-spacing: 1px;
 `;
 
@@ -81,7 +95,8 @@ const AddButton = styled.button`
     display: inline-block;
     font-size: 20px;
     margin: 10px;
-    padding: 10px;
+    width: 150px;
+    height: 71px;
     cursor: pointer;
 
     &:hover {
@@ -100,6 +115,7 @@ const CancelButton = styled.button`
     font-size: 20px;
     margin: 10px;
     width: 150px;
+    height: 71px;
     cursor: pointer;
 
     &:hover {
@@ -134,7 +150,6 @@ function AddEmployeeForm(props) {
         .then(data => {
             if (data.error) {
                 setError(data.error);
-                console.log(data.error);
                 alert("Whoops! Something went wrong. Please try again.");
             } else {
                 props.addEmployee(data);
@@ -143,8 +158,7 @@ function AddEmployeeForm(props) {
         }
         )
         .catch(err => console.log(err));
-    
-        alert("err");
+        alert("Employee added successfully!");
         setFirst("");
         setLast("");
         setJob("");
